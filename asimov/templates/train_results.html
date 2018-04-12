@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+	<div>
+		<h1> Training results </h1>
+		<div class="row">
+			<div class="col">
+				<h2> Overall Training Accuracy </h2>
+				{{ acc }}
+        <h2> Other Metrics </h2>
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+                <th scope="col">Metric</th>
+              {% for class in classes %}
+                <th scope="col">{{ class }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Precision</th>
+              {% for prec in precision %}
+                <td>{{ prec }}</td>
+              {% endfor %}
+            </tr>
+           <tr>
+              <th scope="row">Recall</th>
+              {% for rec in recall %}
+                <td>{{ rec }}</td>
+              {% endfor %}
+            </tr>
+           <tr>
+              <th scope="row">F1 Score</th>
+              {% for fsc in fscore %}
+                <td>{{ fsc }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+			</div>
+		</div>
+		<div class="row">
+			<h2> Confusion matrix </h2>
+			<img src="{{ url_for('fig', cnfmat=cnf_mat, classes=classes) }}" height="700">
+		</div>
+	</div>
+{% include 'footer.html' %} 

@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+  <div class="row justify-content-md-center">
+    <div class="col col-auto">
+      <h1> Please upload your data here: </h1>
+      <form action="/train" method="post" enctype=multipart/form-data id="trainForm">
+        <div class="form-group">
+          <label for="uploadTrainFile">Choose your training file</label>
+          <input type="file" class="form-control-file" name="trainFile" id="uploadTrainFile">
+					<button type="submit" name="Upload" class="btn btn-primary">Upload and Train</button>
+        </div>
+    </div>
+    <div class="col col-auto">
+      <h1> Or look at already uploaded data: </h1>
+				<div class="form-group">
+					<label for="uploadedFilesSelect">Uploaded Files</label>
+					<select class="form-control" name="uploadedFilesSelect" id="uploadedFilesSelect">
+						<option value="">Choose a file</option>
+						{% for file in files %}
+							<option value="{{file}}">{{ file }}</option>
+						{% endfor %}
+					</select>
+					<button type="submit" name="Selected" class="btn btn-primary">Train</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col col-auto">
+      <div class="form-group">
+        <label for="modelTypeSelect">Choose what type of model to train</label>
+        <select class="form-control" name="modelTypeSelect" id="modelTypeSelect" form="trainForm">
+          <option value="mnb">Multinomial Naive Bayes</option>
+          <option value="ffnn">Feedforward Neural Network</option>
+          <option value="rnn">Recurrent Neural Network</option>
+        </select>
+      </div>
+    </div>
+  </div>
+{% include 'footer.html' %}

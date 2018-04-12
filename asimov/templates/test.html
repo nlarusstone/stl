@@ -1,0 +1,27 @@
+{% include 'header.html' %}
+  <div class="row">
+    <div class="col col-md-auto">
+      <h1> Choose trained model </h1>
+      <form action="/test" method=post id="testData">
+				<div class="form-group">
+					<label for="trainedModelsSelect">Uploaded Files</label>
+					<select class="form-control" name="trainedModelsSelect" id="trainedModelsSelect">
+						<option value="default"> Choose a model </option>
+						{% for model in models %}
+							<option value="{{model}}"> {{ model }} </option>
+						{% endfor %}
+					</select>
+          <textarea name="testText" cols="40" rows="4" form="testData" placeholder="Text to classify"></textarea>
+					<button type="submit" name="Predict" class="btn btn-primary">Predict</button>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+      {% if prediction %}
+        <p> Prediction: {{prediction}} </p>
+        <p> Explanation: {{explanation}} </p>
+        {% include 'nb.html' %}
+      {% endif %}
+    </div>
+  </div>
+{% include 'footer.html' %}
