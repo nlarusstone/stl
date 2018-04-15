@@ -174,6 +174,7 @@ def predict(model_path, x_val):
         pipeline.steps.append(('nn', model))
     with open('./models/{0}.classes'.format(froot), 'rb') as f:
         classes = pickle.load(f)
+    attn = None
     if model_type == 'ffnn':
         explain(x_val, pipeline.predict, classes)
         attn = show_attention(pipeline, x_val)
