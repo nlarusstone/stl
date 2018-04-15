@@ -7,3 +7,5 @@ Werkzeug==0.14.1
 scikit_learn==0.19.1
 gunicorn==19.7.1
 tensorflow
+six==1.11.0
+heroku==0.1.4
