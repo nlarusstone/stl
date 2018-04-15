@@ -30,7 +30,7 @@
       <div class="form-group">
         <label for="modelTypeSelect">Choose what type of model to train</label>
         <select class="form-control" name="modelTypeSelect" id="modelTypeSelect" form="trainForm">
-          {% for model_type, model_name in model_types %}
+          {% for model_type, model_name in model_types.items() %}
             <option value={{model_type}}>{{ model_name }}</option>
           {% endfor %}
         </select>
