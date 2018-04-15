@@ -69,7 +69,7 @@ def upload_train_file():
     if type(train) == str:
             return make_response(render_template('error.html', 
                 error_message=train), 400)
-    else:j
+    else:
         return render_template('train_results.html', cnf_mat=train['cnf_mat'],
             classes=train['classes'], acc=train['accuracy'],
             precision=train['precision'], recall=train['recall'],
