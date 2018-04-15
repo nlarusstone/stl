@@ -1,1 +1,1 @@
-web: gunicorn asimov:app
+web: gunicorn asimov:app -t 60
