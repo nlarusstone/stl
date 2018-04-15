@@ -1,0 +1,14 @@
+{
+  "name": "STL (Supervised Text Learning)",
+  "description": "A machine learning platform to upload labeled training data and get a labeled prediction",
+  "image": "",
+  "repository": "",
+  "keywords": ["python"],
+  "addons": [],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key",
+      "generator": "secret"
+    }
+  }
+}

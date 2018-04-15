@@ -1,3 +1,4 @@
+<!-- Copyright Nicholas Larus-Stone 2018. -->
 {% include 'header.html' %}
   <div class="row justify-content-md-center">
     <div class="col col-auto">
@@ -29,9 +30,9 @@
       <div class="form-group">
         <label for="modelTypeSelect">Choose what type of model to train</label>
         <select class="form-control" name="modelTypeSelect" id="modelTypeSelect" form="trainForm">
-          <option value="mnb">Multinomial Naive Bayes</option>
-          <option value="ffnn">Feedforward Neural Network</option>
-          <option value="rnn">Recurrent Neural Network</option>
+          {% for model_type, model_name in model_types %}
+            <option value={{model_type}}>{{ model_name }}</option>
+          {% endfor $}
         </select>
       </div>
     </div>

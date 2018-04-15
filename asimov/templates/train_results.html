@@ -1,3 +1,4 @@
+<!-- Copyright Nicholas Larus-Stone 2018. -->
 {% include 'header.html' %}
 	<div>
 		<h1> Training results </h1>
@@ -40,6 +41,7 @@
 		</div>
 		<div class="row">
 			<h2> Confusion matrix </h2>
+      <br/>
 			<img src="{{ url_for('fig', cnfmat=cnf_mat, classes=classes) }}" height="700">
 		</div>
 	</div>
