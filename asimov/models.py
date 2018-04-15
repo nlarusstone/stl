@@ -8,6 +8,9 @@ from keras.layers import Dense, Activation, Dropout, Input, merge
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.callbacks import EarlyStopping
 from lime.lime_text import LimeTextExplainer
+# Having issues with tkAgg backedn
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
