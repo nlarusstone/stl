@@ -79,13 +79,12 @@ def upload_train_file():
 def test():
     trained_models = filter(lambda x: file_allowed(x, app.config['MODEL_EXTENSIONS']), 
             os.listdir(app.config['MODEL_FOLDER']))
+    prediction, attn = None, None
     # If it's a get request, don't need to render any prediction
     if request.method == 'POST':
         text = request.form['testText']
         model_path = request.form['trainedModelsSelect']
         # attn is only used if the model is a neural network
         # The predict method writes the prediction out to a file
-        attn = predict(model_path, text)
-        return render_template('test.html', prediction=True, models=trained_models, attention=attn)
-    else:
-        return render_template('test.html', prediction=False, models=trained_models, attention=None)
+        prediction, attn = predict(model_path, text)
+    return render_template('test.html', prediction=prediction, models=trained_models, attention=attn)

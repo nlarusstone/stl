@@ -19,6 +19,7 @@
     </div>
     <div class="col">
       {% if prediction %}
+        <p> Prediction: {{prediction}} </p>
         {% include 'exp.html' %}
         {% if attention %}
           <p> Attention was paid to: {{attention}} </p>

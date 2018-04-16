@@ -175,12 +175,15 @@ def predict(model_path, x_val):
     with open('./models/{0}.classes'.format(froot), 'rb') as f:
         classes = pickle.load(f)
     attn = None
+    pred = pipeline.predict([x_val])
     if model_type == 'ffnn':
         explain(x_val, pipeline.predict, classes)
         attn = show_attention(pipeline, x_val)
+        pred = classes[np.argmax(pred)]
     else:
         explain(x_val, pipeline.predict_proba, classes)
-    return attn
+        pred = pred[0]
+    return pred, attn
 
 def visualize_cnf_mat(cnf_mat, classes):
     fig = plt.figure(figsize=(10, 10))
